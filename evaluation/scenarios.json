@@ -1,0 +1,109 @@
+
+{
+  "schema_version": "1.0",
+  "role": "Operations Specialist",
+  "scenarios": [
+    {
+      "id": "HT-01",
+      "title": "Routine supplier invoice processing",
+      "responsibility": "Process and reconcile supplier invoices",
+      "materials": [
+        {
+          "source": "invoice_sop",
+          "type": "sop",
+          "text": "Match each invoice against the purchase order and goods receipt. Investigate mismatches above 2%. Record the reconciliation result in the finance system."
+        },
+        {
+          "source": "walkthrough_transcript",
+          "type": "transcript",
+          "text": "For a normal invoice, I match the purchase order, check the goods receipt, and record the result. If the mismatch exceeds 2%, I investigate it before processing."
+        }
+      ]
+    },
+    {
+      "id": "HT-02",
+      "title": "Urgent supplier payment exception",
+      "responsibility": "Handle urgent supplier payments when standard approval is delayed",
+      "materials": [
+        {
+          "source": "payment_sop",
+          "type": "sop",
+          "text": "Payments require approval from the finance manager before release. Urgent payments should be prioritised."
+        },
+        {
+          "source": "walkthrough_transcript",
+          "type": "transcript",
+          "text": "When a payment is urgent, I usually message the finance manager. If they are unavailable, I contact someone who can help. We have a workaround for critical suppliers."
+        }
+      ]
+    },
+    {
+      "id": "HT-03",
+      "title": "Month-end reconciliation dependency",
+      "responsibility": "Complete month-end reconciliation using the sales export",
+      "materials": [
+        {
+          "source": "reconciliation_sop",
+          "type": "sop",
+          "text": "Download the sales export, reconcile totals against the finance ledger, investigate discrepancies, and submit the reconciliation by the second working day."
+        },
+        {
+          "source": "walkthrough_transcript",
+          "type": "transcript",
+          "text": "I download the export from the reporting portal. If the export is delayed, I normally ask Priya because she knows which report to use. The replacement report sometimes has different columns, so I adjust the spreadsheet before reconciling."
+        }
+      ]
+    },
+    {
+      "id": "HT-04",
+      "title": "Demonstration without assessed outcome",
+      "responsibility": "Prepare and submit the weekly operations report",
+      "materials": [
+        {
+          "source": "weekly_report_sop",
+          "type": "sop",
+          "text": "Compile weekly operational totals, compare them with the previous week, explain material deviations, and submit the report to the operations manager."
+        },
+        {
+          "source": "successor_record",
+          "type": "verification_record",
+          "text": "The successor recorded a demonstration of preparing and submitting the weekly report. No assessment result or reviewer sign-off was recorded."
+        }
+      ]
+    },
+    {
+      "id": "HT-05",
+      "title": "Verified routine reporting",
+      "responsibility": "Prepare and submit the daily operations report",
+      "materials": [
+        {
+          "source": "daily_report_sop",
+          "type": "sop",
+          "text": "Export daily totals, validate the totals against the source system, investigate discrepancies above 1%, and submit the report before 10:00."
+        },
+        {
+          "source": "assessment_record",
+          "type": "verification_record",
+          "text": "Assessment criterion: independently produce a report with totals matching the source system, investigate discrepancies above 1%, and submit before 10:00. Recorded outcome: passed. Evidence: assessor-reviewed task output. Reviewer: operations manager. Verification status: confirmed."
+        }
+      ]
+    },
+    {
+      "id": "HT-06",
+      "title": "Stakeholder-dependent customer escalation",
+      "responsibility": "Resolve customer escalations that require coordination with account management",
+      "materials": [
+        {
+          "source": "escalation_sop",
+          "type": "sop",
+          "text": "Log the complaint, assess severity, and escalate high-priority cases to account management."
+        },
+        {
+          "source": "walkthrough_transcript",
+          "type": "transcript",
+          "text": "For certain long-standing customers, I speak to their account manager before sending the standard escalation email. Some accounts have agreed exceptions, and the relationship history changes how we approach the conversation."
+        }
+      ]
+    }
+  ]
+}

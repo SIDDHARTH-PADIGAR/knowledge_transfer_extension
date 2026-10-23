@@ -1,0 +1,52 @@
+
+{
+  "schema_version": "1.0",
+  "evaluation_status": "frozen_before_implementation",
+  "outcomes": [
+    {
+      "scenario_id": "HT-01",
+      "expected_gaps": [],
+      "expected_readiness": "unverified",
+      "rationale": "The routine procedure and key exception threshold are documented, but no successor assessment is recorded."
+    },
+    {
+      "scenario_id": "HT-02",
+      "expected_gaps": [
+        "No defined fallback approver or escalation path",
+        "No documented workaround or conditions for using it"
+      ],
+      "expected_readiness": "unverified",
+      "rationale": "The materials imply a workaround but do not establish an authorised fallback approver or a documented exception process."
+    },
+    {
+      "scenario_id": "HT-03",
+      "expected_gaps": [
+        "No documented fallback procedure for a delayed export",
+        "No documented report-selection criteria or replacement-column mapping"
+      ],
+      "expected_readiness": "unverified",
+      "rationale": "The fallback depends on individual knowledge and an undocumented spreadsheet adjustment."
+    },
+    {
+      "scenario_id": "HT-04",
+      "expected_gaps": [],
+      "expected_readiness": "unverified",
+      "rationale": "A demonstration exists, but no assessed outcome or reviewer sign-off establishes successor competence."
+    },
+    {
+      "scenario_id": "HT-05",
+      "expected_gaps": [],
+      "expected_readiness": "verified",
+      "rationale": "The record contains an explicit criterion, passing outcome, reviewed task evidence, reviewer, and confirmed verification."
+    },
+    {
+      "scenario_id": "HT-06",
+      "expected_gaps": [
+        "No documented criteria for account-specific escalation exceptions",
+        "No documented stakeholder coordination or relationship-history handover"
+      ],
+      "expected_readiness": "unverified",
+      "rationale": "The standard process exists, but important exceptions and stakeholder knowledge are not reproducibly documented."
+    }
+  ]
+}
