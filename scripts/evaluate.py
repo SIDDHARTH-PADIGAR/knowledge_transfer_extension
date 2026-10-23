@@ -4,6 +4,7 @@ from pathlib import Path
 
 from src.knowledge_transfer.coverage import detect_knowledge_gaps
 from src.knowledge_transfer.models import Evidence, EvidenceType
+from src.knowledge_transfer.validation import validate_finding
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -45,6 +46,20 @@ def main() -> None:
         outcome = expected_by_id[scenario_id]
         evidence = build_evidence(scenario)
         findings = detect_knowledge_gaps(scenario_id, evidence)
+        
+        invalid_findings = []
+
+        for finding in findings:
+            result = validate_finding(finding, evidence)
+            if not result.valid:
+                invalid_findings.append(finding.title)
+
+        valid_findings = [
+            finding for finding in findings
+            if finding.title not in invalid_findings
+        ]
+
+        findings = valid_findings
 
         expected_titles = set(outcome["expected_gaps"])
         detected_titles = {finding.title for finding in findings}

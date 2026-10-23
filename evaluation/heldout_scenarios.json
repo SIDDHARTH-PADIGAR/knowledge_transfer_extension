@@ -1,0 +1,57 @@
+
+{
+  "schema_version": "1.0",
+  "scenarios": [
+    {
+      "id": "HO-01",
+      "title": "Warehouse inventory adjustment",
+      "responsibility": "Approve and record inventory adjustments",
+      "materials": [
+        {
+          "source": "inventory_sop",
+          "type": "sop",
+          "text": "Count the affected stock, compare the result with the inventory system, obtain supervisor approval for adjustments, and record the approved change."
+        },
+        {
+          "source": "walkthrough_transcript",
+          "type": "transcript",
+          "text": "If the supervisor is away, I usually get the shift lead to sign it off. Different teams handle damaged stock a bit differently, depending on the situation."
+        }
+      ]
+    },
+    {
+      "id": "HO-02",
+      "title": "Customer refund processing",
+      "responsibility": "Process customer refunds",
+      "materials": [
+        {
+          "source": "refund_sop",
+          "type": "sop",
+          "text": "Confirm the order, check refund eligibility, obtain the required approval, and record the refund in the payment system."
+        },
+        {
+          "source": "walkthrough_transcript",
+          "type": "transcript",
+          "text": "For a duplicate charge, I reverse the extra payment and add a note to the case. The standard guide doesn't explain how to handle it when the original payment is still pending."
+        }
+      ]
+    },
+    {
+      "id": "HO-03",
+      "title": "Routine equipment inspection",
+      "responsibility": "Complete and record daily equipment inspections",
+      "materials": [
+        {
+          "source": "inspection_sop",
+          "type": "sop",
+          "text": "Inspect the equipment using the approved checklist, record each result, report defects to the supervisor, and remove unsafe equipment from service."
+        },
+        {
+          "source": "inspection_record",
+          "type": "verification_record",
+          "text": "Assessment criterion: independently complete the inspection, identify the seeded defect, and follow the safety escalation procedure. Outcome: passed. Evidence: completed checklist and observed practical assessment. Reviewer: safety supervisor. Verification status: confirmed."
+        }
+      ]
+    }
+  ]
+}

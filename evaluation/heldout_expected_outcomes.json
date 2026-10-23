@@ -1,0 +1,30 @@
+
+{
+  "schema_version": "1.0",
+  "evaluation_status": "frozen_before_heldout_evaluation",
+  "outcomes": [
+    {
+      "scenario_id": "HO-01",
+      "expected_gaps": [
+        "No documented authority for substitute inventory-adjustment approval",
+        "No documented criteria for handling damaged-stock variations"
+      ],
+      "expected_readiness": "unverified",
+      "rationale": "The transcript mentions substitute sign-off and team-specific handling, but the materials do not establish approval authority or reproducible damaged-stock criteria."
+    },
+    {
+      "scenario_id": "HO-02",
+      "expected_gaps": [
+        "No documented procedure for refunds when the original payment is pending"
+      ],
+      "expected_readiness": "unverified",
+      "rationale": "The transcript explicitly identifies a pending-payment situation that the standard guide does not explain. No successor assessment is provided."
+    },
+    {
+      "scenario_id": "HO-03",
+      "expected_gaps": [],
+      "expected_readiness": "verified",
+      "rationale": "The supplied record specifies an assessment criterion, passing outcome, practical evidence, reviewer, and confirmed verification status."
+    }
+  ]
+}
