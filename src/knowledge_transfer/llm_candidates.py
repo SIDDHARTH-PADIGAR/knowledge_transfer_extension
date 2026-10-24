@@ -26,7 +26,7 @@ class HybridResult:
 
 def _ask_ollama(
     evidence: list[Evidence],
-    model: str = "llama-3.3-70b-versatile",
+    model: str = "openai/gpt-oss-120b",
     timeout: int = 90,
 ) -> dict:
     """Request evidence-grounded gap candidates from Groq."""
@@ -92,7 +92,7 @@ Return JSON only:
 def detect_hybrid_gaps(
     responsibility_id: str,
     evidence_records: list[Evidence],
-    model: str = "llama-3.3-70b-versatile",
+    model: str = "openai/gpt-oss-120b",
     timeout: int = 90,
 ) -> HybridResult:
     """Combine deterministic findings with validated Groq candidates."""
@@ -160,8 +160,51 @@ def detect_hybrid_gaps(
             rejected += 1
             errors.extend(finding_check.errors)
             continue
-
+        
         if finding.title in accepted:
+            continue
+
+        # Avoid duplicate findings with different titles.
+        candidate_text = (
+            finding.title + " " + finding.description
+        ).lower()
+
+        duplicate_terms = {
+            "approver": ("approv", "authorit", "supervisor", "manager", "sign off"),
+            "workaround": ("workaround", "critical supplier", "urgent payment"),
+        }
+
+        is_duplicate = False
+
+        for existing in accepted.values():
+            existing_text = (
+                existing.title + " " + existing.description
+            ).lower()
+
+            candidate_topic = next(
+                (
+                    topic
+                    for topic, terms in duplicate_terms.items()
+                    if any(term in candidate_text for term in terms)
+                ),
+                None,
+            )
+            existing_topic = next(
+                (
+                    topic
+                    for topic, terms in duplicate_terms.items()
+                    if any(term in existing_text for term in terms)
+                ),
+                None,
+            )
+
+            if candidate_topic is not None and candidate_topic == existing_topic:
+                is_duplicate = True
+                break
+
+        if is_duplicate:
+            rejected += 1
+            errors.append("Duplicate or overlapping finding rejected.")
             continue
 
         has_sop = any(
